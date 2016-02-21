@@ -1,0 +1,19 @@
+{
+  "name": "tillstand",
+  "version": "1.0.0",
+  "description": "Handy API for assigning BEMIT-style state classnames.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msfragala/tillstand.git"
+  },
+  "author": "Mitchell Gates <ms.fragala@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msfragala/tillstand/issues"
+  },
+  "homepage": "https://github.com/msfragala/tillstand#readme"
+}
