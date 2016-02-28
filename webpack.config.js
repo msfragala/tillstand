@@ -6,7 +6,8 @@ versions.forEach(function(version) {
     entry: ['./src/index.js'],
     output: {
       filename: `${version}.js`,
-      library: 'umd'
+      library: 'tillstand',
+      libraryTarget: 'umd'
     },
     module: {
       loaders: [

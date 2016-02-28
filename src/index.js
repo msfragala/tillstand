@@ -14,7 +14,7 @@ export function check(target, stateName) {
     case (target instanceof jQuery):
     case (target instanceof Array):
       for(let i = 0; i < target.length; i++) {
-        if (!__assess__(target[i])) {
+        if (!__assess__(target[i], stateName)) {
           return false;
         }
       }
