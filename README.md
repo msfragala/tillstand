@@ -3,13 +3,13 @@
 Check, toggle, affirm, and negate states via BEMIT-style classes.
 
 ###Usage
-All methods accept two parameters: `element` (the elements manipulated) and `stateName` (name of the state managed). The `element` parameter must be either a single Element or a NodeList, Array, or jQuery object of Elements; the `stateName` parameter must be a string. Tillstand works by governing the occurance of two classes constructed from the `stateName` parameter &mdash; `is-{stateName}` as affirmative and `not-{stateName}` as negative.
+All methods accept two parameters: `element` (the elements manipulated) and `stateName` (name of the state managed). The `element` parameter must be either a single Element or a NodeList, Array, or jQuery object of Elements; the `stateName` parameter must be a string. Tillstand works by governing the occurrence of two classes constructed from the `stateName` parameter &mdash; `is-{stateName}` as affirmative and `not-{stateName}` as negative.
 
 ```javascript
 import tillstand from 'tillstand';
 
 tillstand.check(document.body, 'nefarious');
-// returns a Boolean given the occurance of the affirmative class
+// returns a boolean given the occurrence of the affirmative class
 // so here returns false
 
 tillstand.affirm(document.body, 'nefarious');
