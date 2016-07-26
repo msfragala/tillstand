@@ -11,7 +11,7 @@ module.exports.check = function __check(target, stateName) {
     case (target instanceof NodeList):
     case (target instanceof jQuery):
     case (target instanceof Array):
-      for(let i = 0; i < target.length; i++) {
+      for(var i = 0; i < target.length; i++) {
         if (!assessState(target[i], stateName)) {
           return false;
         }
@@ -40,7 +40,7 @@ module.exports.toggle = function __toggle(target, stateName) {
     case (target instanceof NodeList):
     case (target instanceof jQuery):
     case (target instanceof Array):
-      for(let i = 0; i < target.length; i++) {
+      for(var i = 0; i < target.length; i++) {
         __toggle(target[i], stateName);
       }
       break;
@@ -64,7 +64,7 @@ module.exports.affirm = function __affirm(target, stateName) {
     case (target instanceof NodeList):
     case (target instanceof jQuery):
     case (target instanceof Array):
-      for(let i = 0; i < target.length; i++) {
+      for(var i = 0; i < target.length; i++) {
         __affirm(target[i], stateName);
       }
       break;
@@ -88,7 +88,7 @@ module.exports.negate = function __negate(target, stateName) {
     case (target instanceof NodeList):
     case (target instanceof jQuery):
     case (target instanceof Array):
-      for(let i = 0; i < target.length; i++) {
+      for(var i = 0; i < target.length; i++) {
         __negate(target[i], stateName);
       }
       break;
@@ -136,7 +136,7 @@ function negateState(target, states) {
  */
 function generateNames(stateName) {
   return {
-    affirmative: `is-${stateName}`,
-    negative: `not-${stateName}`
+    affirmative: 'is-' + stateName,
+    negative: 'not-' + stateName
   }
 }
