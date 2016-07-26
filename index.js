@@ -2,6 +2,9 @@
  *
  */
 module.exports.check = function __check(target, stateName) {
+  if (typeof target === 'string') {
+    target = document.querySelectorAll(target);
+  }
   if (typeof stateName === 'string') {
     stateName = generateNames(stateName);
   }
@@ -25,12 +28,15 @@ module.exports.check = function __check(target, stateName) {
  *
  */
 module.exports.toggle = function __toggle(target, stateName) {
+  if (typeof target === 'string') {
+    target = document.querySelectorAll(target);
+  }
   if (typeof stateName === 'string') {
     stateName = generateNames(stateName);
   }
   switch (true) {
     case (target instanceof HTMLElement):
-      if (!assess(target, stateName)) {
+      if (!assessState(target, stateName)) {
         affirmState(target, stateName);
         return true;
       } else {
@@ -52,6 +58,9 @@ module.exports.toggle = function __toggle(target, stateName) {
  *
  */
 module.exports.affirm = function __affirm(target, stateName) {
+  if (typeof target === 'string') {
+    target = document.querySelectorAll(target);
+  }
   if (typeof stateName === 'string') {
     stateName = generateNames(stateName);
   }
@@ -76,6 +85,9 @@ module.exports.affirm = function __affirm(target, stateName) {
  *
  */
 module.exports.negate = function __negate(target, stateName) {
+  if (typeof target === 'string') {
+    target = document.querySelectorAll(target);
+  }
   if (typeof stateName === 'string') {
     stateName = generateNames(stateName);
   }

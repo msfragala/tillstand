@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
-  <script src="../index.js" async></script>
 </head>
 <body>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta diam in ex finibus, at aliquam massa eleifend. Sed a arcu a est maximus mattis. Integer nec nisl rutrum tellus lobortis volutpat sed eget ligula. Ut eget mollis nisi. Integer rhoncus sem et elementum finibus. Nam sit amet est pharetra, posuere dui vel, faucibus enim. Nullam non sem eu felis lobortis ullamcorper. In fringilla nunc in dapibus fermentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc mollis quam posuere urna iaculis, vitae finibus mi efficitur. Sed aliquam, augue eget sollicitudin porttitor, ex nibh malesuada tellus, in pharetra turpis urna ac dui. Suspendisse cursus, sapien a mollis consequat, erat libero semper velit, sit amet eleifend nisi metus ac velit. Pellentesque non placerat dolor. Integer nec ex non odio placerat sollicitudin eu eu sem. Donec rhoncus nisi tellus, ac imperdiet dolor viverra quis.</p>
@@ -11,5 +10,48 @@
   <p>Nam ac luctus lectus, ut vehicula justo. Maecenas varius felis ut neque cursus condimentum. Morbi neque velit, molestie et lobortis id, fermentum eu nisi. Etiam in aliquam purus. Nunc scelerisque lacinia nisl. Duis eu eros id neque scelerisque gravida ut non urna. Morbi in nibh at nunc molestie facilisis id nec metus. Integer sit amet porttitor tellus, id feugiat est. Nam pellentesque massa sed ante tempor blandit vitae at augue. Aenean laoreet orci ex, vitae euismod risus suscipit sed.</p>
   <p>Etiam mattis enim et magna suscipit, laoreet imperdiet leo pellentesque. Vestibulum luctus turpis at sem aliquet maximus. Proin ut consequat sapien, id tristique mauris. Suspendisse leo velit, efficitur in nisl id, ultrices tempus erat. Donec augue ex, ullamcorper varius cursus id, lobortis porta nisi. Mauris maximus rhoncus risus. Maecenas at lorem quis metus aliquam condimentum. Etiam quis turpis ut lorem aliquam facilisis ac eget augue.</p>
   <p>Proin sed condimentum est, ac fringilla velit. Donec pretium neque at turpis tempor porta. Cras dapibus sit amet leo et convallis. Maecenas fringilla facilisis turpis, at lacinia tortor dignissim ut. Fusce eleifend neque purus. Vivamus eu felis est. Quisque consectetur ex metus, eu lobortis ligula sagittis sit amet. Nam tellus nisi, aliquet non hendrerit faucibus, suscipit ac massa. Donec quam neque, gravida nec enim non, pharetra consectetur magna. Etiam hendrerit ligula nibh, sit amet sodales ex porttitor sed. Maecenas turpis ipsum, facilisis finibus nisl ac, ullamcorper vulputate nunc.</p>
+  <script src="../dist/tillstand.js"></script>
+  <script>
+    var pars = document.querySelectorAll('p');
+    var t1, t2, t3, t4;
+
+    window.tillstand.affirm(pars, 'test');
+    var t1 = tillstand.check(pars, 'test'); // should be true
+
+    window.tillstand.negate(pars[0], 'test');
+    var t2 = tillstand.check(pars[0], 'test'); // should be false
+    var t3 = tillstand.check(pars, 'test'); // should be false
+
+    window.tillstand.negate(pars[0], 'test');
+    var t4 = tillstand.check(pars[0], 'test'); // should be false
+    var t5 = tillstand.check(pars, 'test'); // should be false
+
+    window.tillstand.toggle(pars[0], 'test');
+    var t6 = tillstand.check(pars[0], 'test'); // should be true
+    var t7 = tillstand.check(pars, 'test'); // should be true
+
+    window.tillstand.affirm(pars[0], 'test');
+    window.tillstand.toggle(pars[1], 'test');
+    var t8 = tillstand.check(pars[0], 'test'); // should be true
+    var t9 = tillstand.check(pars[1], 'test'); // should be false
+    var t10 = tillstand.check(pars, 'test'); // should be false
+
+    window.tillstand.toggle(pars[1], 'test');
+    var t11 = tillstand.check(pars[1], 'test'); // should be true
+    var t12 = tillstand.check(pars, 'test'); // should be true
+
+    console.log(( t1 === true ? 'o' : 'x') + ' - Group check should be true');
+    console.log(( t2 === false ? 'o' : 'x') + ' - P1 check should be false');
+    console.log(( t3 === false ? 'o' : 'x') + ' - Group check should be false');
+    console.log(( t4 === false ? 'o' : 'x') + ' - P1 check should still be false');
+    console.log(( t5 === false ? 'o' : 'x') + ' - Group check should still be false');
+    console.log(( t6 === true ? 'o' : 'x') + ' - P1 check should be true');
+    console.log(( t7 === true ? 'o' : 'x') + ' - Group check should be true');
+    console.log(( t8 === true ? 'o' : 'x') + ' - P1 check should still be true');
+    console.log(( t9 === false ? 'o' : 'x') + ' - P2 check should be false');
+    console.log(( t10 === false ? 'o' : 'x') + ' - Group check should be false');
+    console.log(( t11 === true ? 'o' : 'x') + ' - P2 check should be true');
+    console.log(( t12 === true ? 'o' : 'x') + ' - Group check should be true');
+  </script>
 </body>
 </html>
