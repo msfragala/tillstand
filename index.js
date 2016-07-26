@@ -1,5 +1,7 @@
 /**
- *
+ * @param {(HTMLElement[]|string}) target - The elements to assess the `stateName` state for (can be an element, list of elements, or a selector to query)
+ * @param {string} stateName - The basename of the state class to check
+ * @returns {boolean} Whether all targets are affirmed for the `stateName` state
  */
 module.exports.check = function __check(target, stateName) {
   if (typeof target === 'string') {
@@ -25,7 +27,8 @@ module.exports.check = function __check(target, stateName) {
 }
 
 /**
- *
+ * @param {(HTMLElement[]|string}) target - The elements to toggle the `stateName` state for (can be an element, list of elements, or a selector to query)
+ * @param {string} stateName - The basename of the state class to check
  */
 module.exports.toggle = function __toggle(target, stateName) {
   if (typeof target === 'string') {
@@ -55,7 +58,8 @@ module.exports.toggle = function __toggle(target, stateName) {
 }
 
 /**
- *
+ * @param {(HTMLElement[]|string}) target - The elements to affirm the `stateName` state for (can be an element, list of elements, or a selector to query)
+ * @param {string} stateName - The basename of the state class to check
  */
 module.exports.affirm = function __affirm(target, stateName) {
   if (typeof target === 'string') {
@@ -82,7 +86,8 @@ module.exports.affirm = function __affirm(target, stateName) {
 }
 
 /**
- *
+ * @param {(HTMLElement[]|string}) target - The elements to negate the `stateName` state for (can be an element, list of elements, or a selector to query)
+ * @param {string} stateName - The basename of the state class to check
  */
 module.exports.negate = function __negate(target, stateName) {
   if (typeof target === 'string') {
