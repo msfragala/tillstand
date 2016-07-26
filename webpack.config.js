@@ -1,22 +1,26 @@
 var webpack = require('webpack');
-var versions = ['index', 'dist/tillstand'];
-var configurations = [];
-versions.forEach(function(version) {
-  configurations.push({
-    entry: ['./src/index.js'],
+var path = require('path');
+
+module.exports = [
+  {
+    entry: path.resolve('./index.js'),
     output: {
-      filename: `${version}.js`,
+      path: path.resolve('./dist'),
+      filename: 'tillstand.js',
       library: 'tillstand',
-      libraryTarget: 'umd'
-    },
-    module: {
-      loaders: [
-        { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"}
-      ]
+      libraryTarget: 'umd',
+    }
+  },
+  {
+    entry: path.resolve('./index.js'),
+    output: {
+      path: path.resolve('./dist'),
+      filename: 'tillstand.min.js',
+      library: 'tillstand',
+      libraryTarget: 'umd',
     },
     plugins: [
       new webpack.optimize.UglifyJsPlugin()
     ]
-  });
-});
-module.exports = configurations;
+  }
+];
